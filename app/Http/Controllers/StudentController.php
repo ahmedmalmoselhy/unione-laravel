@@ -29,29 +29,29 @@ class StudentController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
-            'department_id' => 'nullable|exists:departments,id',
+            // 'department_id' => 'nullable|exists:departments,id',
             'is_general' => 'boolean',
             'academic_year' => 'nullable|integer',
         ]);
 
         $validated['password'] = Hash::make($validated['password']);
         $validated['role'] = 'student';
-        $departmentId = $validated['department_id'] ?? null;
-        $isGeneral = $request->has('is_general') ? true : false;
-        $academicYear = $validated['academic_year'] ?? null;
+        // $departmentId = $validated['department_id'] ?? null;
+        // $isGeneral = $request->has('is_general') ? true : false;
+        // $academicYear = $validated['academic_year'] ?? null;
         
-        unset($validated['department_id'], $validated['is_general'], $validated['academic_year']);
+        // unset($validated['department_id'], $validated['is_general'], $validated['academic_year']);
 
         $student = User::create($validated);
         
-        if ($departmentId || $isGeneral) {
-            $student->studentDepartment()->sync([
-                $departmentId => [
-                    'is_general' => $isGeneral,
-                    'academic_year' => $academicYear,
-                ]
-            ]);
-        }
+        // if ($departmentId || $isGeneral) {
+        //     $student->studentDepartment()->sync([
+        //         $departmentId => [
+        //             'is_general' => $isGeneral,
+        //             'academic_year' => $academicYear,
+        //         ]
+        //     ]);
+        // }
 
         return redirect()->route('students.index')
             ->with('success', 'Student created successfully.');
@@ -59,15 +59,15 @@ class StudentController extends Controller
 
     public function show(User $student)
     {
-        $student->load('studentDepartment');
+        // $student->load('studentDepartment');
         return view('students.show', compact('student'));
     }
 
     public function edit(User $student)
     {
-        $departments = Department::all();
-        $student->load('studentDepartment');
-        return view('students.edit', compact('student', 'departments'));
+        // $departments = Department::all();
+        // $student->load('studentDepartment');
+        return view('students.edit', compact('student'/*, 'departments'*/));
     }
 
     public function update(Request $request, User $student)
@@ -76,7 +76,7 @@ class StudentController extends Controller
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users,email,' . $student->id,
             'password' => 'nullable|string|min:8|confirmed',
-            'department_id' => 'nullable|exists:departments,id',
+            // 'department_id' => 'nullable|exists:departments,id',
             'is_general' => 'boolean',
             'academic_year' => 'nullable|integer',
         ]);
@@ -87,24 +87,24 @@ class StudentController extends Controller
             unset($validated['password']);
         }
 
-        $departmentId = $validated['department_id'] ?? null;
-        $isGeneral = $request->has('is_general') ? true : false;
-        $academicYear = $validated['academic_year'] ?? null;
+        // $departmentId = $validated['department_id'] ?? null;
+        // $isGeneral = $request->has('is_general') ? true : false;
+        // $academicYear = $validated['academic_year'] ?? null;
         
-        unset($validated['department_id'], $validated['is_general'], $validated['academic_year']);
+        // unset($validated['department_id'], $validated['is_general'], $validated['academic_year']);
 
         $student->update($validated);
         
-        if ($departmentId || $isGeneral) {
-            $student->studentDepartment()->sync([
-                $departmentId => [
-                    'is_general' => $isGeneral,
-                    'academic_year' => $academicYear,
-                ]
-            ]);
-        } else {
-            $student->studentDepartment()->detach();
-        }
+        // if ($departmentId || $isGeneral) {
+        //     $student->studentDepartment()->sync([
+        //         $departmentId => [
+        //             'is_general' => $isGeneral,
+        //             'academic_year' => $academicYear,
+        //         ]
+        //     ]);
+        // } else {
+        //     $student->studentDepartment()->detach();
+        // }
 
         return redirect()->route('students.index')
             ->with('success', 'Student updated successfully.');

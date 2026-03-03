@@ -25,19 +25,19 @@
                 <input type="password" name="password_confirmation" id="password_confirmation" required class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
             </div>
             <div>
-                <label for="department_id" class="block text-sm font-medium text-gray-700">Department</label>
+                {{-- <label for="department_id" class="block text-sm font-medium text-gray-700">Department</label>
                 <select name="department_id" id="department_id" class="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     <option value="">None (General Department)</option>
                     @foreach($departments as $dept)
                         <option value="{{ $dept->id }}" {{ old('department_id') == $dept->id ? 'selected' : '' }}>{{ $dept->name }}</option>
                     @endforeach
-                </select>
+                </select> --}}
             </div>
             <div>
-                <label class="flex items-center">
+                {{-- <label class="flex items-center">
                     <input type="checkbox" name="is_general" value="1" {{ old('is_general') ? 'checked' : '' }} class="rounded border-gray-300 text-blue-600 shadow-sm focus:border-blue-500 focus:ring-blue-500">
                     <span class="ml-2 text-sm text-gray-700">General Department</span>
-                </label>
+                </label> --}}
             </div>
             <div>
                 <label for="academic_year" class="block text-sm font-medium text-gray-700">Academic Year</label>

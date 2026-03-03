@@ -28,11 +28,11 @@
                         <td class="px-6 py-4 text-sm font-medium text-gray-900">{{ $student->name }}</td>
                         <td class="px-6 py-4 text-sm text-gray-500">{{ $student->email }}</td>
                         <td class="px-6 py-4 text-sm text-gray-500">
-                            @if($student->studentDepartment->isNotEmpty())
+                            {{-- @if($student->studentDepartment->isNotEmpty())
                                 {{ $student->studentDepartment->first()->name }}
                             @else
                                 N/A
-                            @endif
+                            @endif --}}
                         </td>
                         <td class="px-6 py-4 text-right text-sm font-medium">
                             <a href="{{ route('students.show', $student) }}" class="text-blue-600 hover:text-blue-900 mr-3">View</a>

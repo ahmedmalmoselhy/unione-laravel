@@ -4,9 +4,9 @@ import { Head, Link, usePage } from '@inertiajs/react';
 
 export default function Welcome({
     canRegister = true,
-}: {
+}: Readonly<{
     canRegister?: boolean;
-}) {
+}>) {
     const { auth } = usePage<SharedData>().props;
 
     return (
@@ -67,12 +67,7 @@ export default function Welcome({
                                         </span>
                                     </span>
                                     <span>
-                                        Read the
-                                        <a
-                                            href="https://laravel.com/docs"
-                                            target="_blank"
-                                            className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
-                                        >
+                                        Read the <a href="https://laravel.com/docs" target="_blank" className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]">
                                             <span>Documentation</span>
                                             <svg
                                                 width={10}
@@ -98,12 +93,7 @@ export default function Welcome({
                                         </span>
                                     </span>
                                     <span>
-                                        Watch video tutorials at
-                                        <a
-                                            href="https://laracasts.com"
-                                            target="_blank"
-                                            className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]"
-                                        >
+                                        Watch video tutorials at <a href="https://laracasts.com" target="_blank" className="ml-1 inline-flex items-center space-x-1 font-medium text-[#f53003] underline underline-offset-4 dark:text-[#FF4433]">
                                             <span>Laracasts</span>
                                             <svg
                                                 width={10}

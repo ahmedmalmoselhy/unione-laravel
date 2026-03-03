@@ -16,19 +16,19 @@
         <div>
             <label class="block text-sm font-medium text-gray-700">Department</label>
             <p class="mt-1 text-sm text-gray-900">
-                @if($student->studentDepartment->isNotEmpty())
+                {{-- @if($student->studentDepartment->isNotEmpty())
                     {{ $student->studentDepartment->first()->name }}
                     @if($student->studentDepartment->first()->pivot->is_general)
                         <span class="ml-2 px-2 py-1 text-xs font-medium bg-yellow-100 text-yellow-800 rounded">General</span>
                     @endif
                 @else
                     N/A
-                @endif
+                @endif --}}
             </p>
         </div>
-        @if($student->studentDepartment->isNotEmpty() && $student->studentDepartment->first()->pivot->academic_year)
+        {{-- @if($student->studentDepartment->isNotEmpty() && $student->studentDepartment->first()->pivot->academic_year)
         <div><label class="block text-sm font-medium text-gray-700">Academic Year</label><p class="mt-1 text-sm text-gray-900">{{ $student->studentDepartment->first()->pivot->academic_year }}</p></div>
-        @endif
+        @endif --}}
     </div>
 </div>
 @endsection

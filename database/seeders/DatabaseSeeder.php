@@ -18,10 +18,43 @@ class DatabaseSeeder extends Seeder
         User::firstOrCreate(
             ['email' => 'admin@unione.com'],
             [
-                'name' => 'Test User',
+                'name' => 'Unione Admin',
                 'password' => 'password',
                 'email_verified_at' => now(),
-                'role' => 'admin'
+                'role' => 'admin',
+            ]
+        );
+
+        // create a professor user
+        User::firstOrCreate(
+            ['email' => 'prof@unione.com'],
+            [
+                'name' => 'Professor User',
+                'password' => 'password',
+                'email_verified_at' => now(),
+                'role' => 'professor',
+            ]
+        );
+
+        // create a student user
+        User::firstOrCreate(
+            ['email' => 'student@unione.com'],
+            [
+                'name' => 'Student User',
+                'password' => 'password',
+                'email_verified_at' => now(),
+                'role' => 'student',
+            ]
+        );
+
+        // create an employee user
+        User::firstOrCreate(
+            ['email' => 'employee@unione.com'],
+            [
+                'name' => 'Employee User',
+                'password' => 'password',
+                'email_verified_at' => now(),
+                'role' => 'employee',
             ]
         );
     }

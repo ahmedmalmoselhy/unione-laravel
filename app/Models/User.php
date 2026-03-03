@@ -56,31 +56,31 @@ class User extends Authenticatable
     /**
      * Get the departments for professors/administration.
      */
-    public function professorDepartments()
-    {
-        return $this->belongsToMany(Department::class, 'professor_department')
-            ->withTimestamps();
-    }
+    // public function professorDepartments()
+    // {
+    //     return $this->belongsToMany(Department::class, 'professor_department')
+    //         ->withTimestamps();
+    // }
 
     /**
      * Get the department for students.
      */
-    public function studentDepartment()
-    {
-        return $this->belongsToMany(Department::class, 'student_department')
-            ->withPivot('is_general', 'academic_year')
-            ->withTimestamps();
-    }
+    // public function studentDepartment()
+    // {
+    //     return $this->belongsToMany(Department::class, 'student_department')
+    //         ->withPivot('is_general', 'academic_year')
+    //         ->withTimestamps();
+    // }
 
     /**
      * Get the faculty for employees.
      */
-    public function employeeFaculties()
-    {
-        return $this->belongsToMany(Faculty::class, 'employee_faculty')
-            ->withPivot('position', 'is_university_level')
-            ->withTimestamps();
-    }
+    // public function employeeFaculties()
+    // {
+    //     return $this->belongsToMany(Faculty::class, 'employee_faculty')
+    //         ->withPivot('position', 'is_university_level')
+    //         ->withTimestamps();
+    // }
 
     /**
      * Get the classes for students.
